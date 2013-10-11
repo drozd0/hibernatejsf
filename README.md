@@ -1,0 +1,4 @@
+hibernatejsf
+============
+
+my test project
