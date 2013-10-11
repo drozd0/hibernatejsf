@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html">
+ 
+    <h:head>
+        <title>Listening</title>
+    </h:head>
+    <h:body>
+        <h1>Listening</h1>
+        <div id="header">
+            <h:link id="back" value="back" outcome="back"/>
+        </div>
+        <h:form>
+            <h:selectOneMenu id="musicTypeSelect" value="#{listeningBean.typeOfRecords}">
+                <f:selectItems value="#{listeningBean.list}"/>
+            </h:selectOneMenu>
+            <h:commandButton id="selectButton" value="Select">
+                <f:ajax listener="#{listeningBean.updateCurrentMusic}" execute="musicTypeSelect" render="previousMusic nextMusic musicContent"/>
+            </h:commandButton>
+            <br/>
+            <h:panelGrid columns="2">
+            <h:commandLink id="previousMusic" value="prev" disabled="#{listeningBean.disabledPrevLink}">
+                <f:ajax listener="#{listeningBean.decrementCurrentMusicIndex}" render="previousMusic nextMusic musicContent"/>
+            </h:commandLink>
+            <h:commandLink id="nextMusic" value="next" disabled="#{listeningBean.disabledNextLink}">
+                <f:ajax listener="#{listeningBean.incrementCurrentMusicIndex}" render="nextMusic previousMusic musicContent"/>
+            </h:commandLink>
+                <h:outputText id="musicContent" value="#{listeningBean.currentMusic}"/>
+            </h:panelGrid>
+            <h:commandLink id="buyCurrentMusic" value="buy">
+                <f:ajax listener="#{listeningBean.buyCurrentMusic}"/>
+            </h:commandLink>
+        </h:form>
+
+    </h:body>
+</html>
+

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+    http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+    version="2.0">
+ 
+	<application>
+    	   <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+  	</application>
+ 
+	<managed-bean>
+		<managed-bean-name>loginBean</managed-bean-name>
+		<managed-bean-class>com.home.hibernatejsf.web.LoginBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>userService</property-name>
+			<value>#{userService}</value>
+		</managed-property>
+	</managed-bean>
+        <managed-bean>
+		<managed-bean-name>successBean</managed-bean-name>
+		<managed-bean-class>com.home.hibernatejsf.web.SuccessBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+                <managed-property>
+			<property-name>userService</property-name>
+			<value>#{userService}</value>
+		</managed-property>
+	</managed-bean>
+        <managed-bean>
+		<managed-bean-name>listeningBean</managed-bean-name>
+		<managed-bean-class>com.home.hibernatejsf.web.ListeningBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+                <managed-property>
+			<property-name>utilService</property-name>
+			<value>#{utilService}</value>
+		</managed-property>
+                <managed-property>
+			<property-name>musicService</property-name>
+			<value>#{musicService}</value>
+		</managed-property>
+                <managed-property>
+			<property-name>userService</property-name>
+			<value>#{userService}</value>
+		</managed-property>
+	</managed-bean>
+        <managed-bean>
+		<managed-bean-name>helpBean</managed-bean-name>
+		<managed-bean-class>com.home.hibernatejsf.web.HelpBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+        <managed-bean>
+		<managed-bean-name>privateOfficeBean</managed-bean-name>
+		<managed-bean-class>com.home.hibernatejsf.web.PrivateOfficeBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>userService</property-name>
+			<value>#{userService}</value>
+		</managed-property>
+                <managed-property>
+			<property-name>musicService</property-name>
+			<value>#{musicService}</value>
+		</managed-property>
+	</managed-bean>
+        <!-- NAVIGATION RULES -->
+        <navigation-rule>
+            <from-view-id>login.xhtml</from-view-id>
+            <navigation-case>
+                <from-outcome>success</from-outcome>
+                <to-view-id>/mainMenu.xhtml</to-view-id>
+                <redirect />
+            </navigation-case>
+            <navigation-case>
+                <from-outcome>error</from-outcome>
+                <to-view-id>/error.xtml</to-view-id>
+                <redirect />
+            </navigation-case>
+        </navigation-rule>
+        
+        <navigation-rule>
+            <from-view-id>mainMenu.xhtml</from-view-id>
+            <navigation-case>
+                <from-outcome>help</from-outcome>
+                <to-view-id>/help.xhtml</to-view-id>
+                <redirect />
+            </navigation-case>
+            <navigation-case>
+                <from-outcome>privateOffice</from-outcome>
+                <to-view-id>/privateOffice.xtml</to-view-id>
+                <redirect />
+            </navigation-case>
+            <navigation-case>
+                <from-outcome>listening</from-outcome>
+                <to-view-id>/listening.xtml</to-view-id>
+                <redirect />
+            </navigation-case>
+        </navigation-rule>
+        
+        <navigation-rule>
+            <from-view-id>help.xhtml</from-view-id>
+            <navigation-case>
+                <from-outcome>back</from-outcome>
+                <to-view-id>/mainMenu.xhtml</to-view-id>
+                <redirect />
+            </navigation-case>
+        </navigation-rule>
+        
+        <navigation-rule>
+            <from-view-id>listening.xhtml</from-view-id>
+            <navigation-case>
+                <from-outcome>back</from-outcome>
+                <to-view-id>/mainMenu.xhtml</to-view-id>
+                <redirect />
+            </navigation-case>
+        </navigation-rule>
+        
+        <navigation-rule>
+            <from-view-id>privateOffice.xhtml</from-view-id>
+            <navigation-case>
+                <from-outcome>back</from-outcome>
+                <to-view-id>/mainMenu.xhtml</to-view-id>
+                <redirect />
+            </navigation-case>
+        </navigation-rule>
+</faces-config>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html">
+ 
+    <h:head>
+        <title>Help</title>
+    </h:head>
+    <h:body>
+        <div id="header">
+            <h2>Help</h2>
+        </div>
+        <h:form>
+            <h:selectOneMenu id="helpValueMenu" value="#{helpBean.helpValue}">
+            <f:selectItems id="helpValueItems" value="#{helpBean.helpValueMap}"/>
+        </h:selectOneMenu>
+        <h:commandButton id="selectionButton" value="Submit">
+            <f:ajax execute="helpValueMenu" render="content"/>
+        </h:commandButton>
+        <div id="ContentInfo">
+            <h3>Information: <h:outputText id="content" value="#{helpBean.helpInformation}"/></h3>
+        </div>
+         <div id="footer">
+            <h:link id="backLink" value="back" outcome="back"/>
+        </div>
+        </h:form>
+    </h:body>
+</html>

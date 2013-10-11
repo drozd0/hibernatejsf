@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html">
+ 
+    <h:head>
+        <title>Private Office</title>
+    </h:head>
+    <h:body>
+        <h3>Private office</h3>
+        <div id="header">
+            <h:link id="back" value="back" outcome="back"/>
+        </div>
+        <h:form>
+            <h:inputHidden id="hiddenEl" value="#{privateOfficeBean.updateMusicList}"/>
+            <h:panelGrid columns="2">
+            <h:commandLink id="previousMusic" value="prev" disabled="#{privateOfficeBean.disabledPrevLink}">
+                <f:ajax listener="#{privateOfficeBean.decrementCurrentMusicIndex}" render="previousMusic nextMusic musicContent"/>
+            </h:commandLink>
+            <h:commandLink id="nextMusic" value="next" disabled="#{privateOfficeBean.disabledNextLink}">
+                <f:ajax listener="#{privateOfficeBean.incrementCurrentMusicIndex}" render="nextMusic previousMusic musicContent"/>
+            </h:commandLink>
+                <h:outputText id="musicContent" value="#{privateOfficeBean.currentMusic}"/>
+            </h:panelGrid>
+            <h:commandLink id="removeCurrentMusic" value="remove">
+                <f:ajax listener="#{privateOfficeBean.removeCurrentMusic}" render="musicContent previousMusic nextMusic"/>
+            </h:commandLink>
+        </h:form>
+    </h:body>
+</html>
