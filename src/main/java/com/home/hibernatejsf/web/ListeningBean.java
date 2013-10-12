@@ -12,13 +12,13 @@ import com.home.hibernatejsf.service.UserService;
 import com.home.hibernatejsf.service.UtilService;
 import com.home.hibernatejsf.util.SessionAttributes;
 import com.home.hibernatejsf.util.Utils;
-import com.sun.istack.internal.logging.Logger;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import javax.faces.bean.ManagedBean;
+import org.apache.log4j.Logger;
 
 /**
  *

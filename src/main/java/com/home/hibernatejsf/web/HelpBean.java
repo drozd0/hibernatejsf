@@ -4,12 +4,12 @@
  */
 package com.home.hibernatejsf.web;
 
-import com.sun.istack.internal.logging.Logger;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import org.apache.log4j.Logger;
 
 /**
  *

@@ -10,11 +10,11 @@ import com.home.hibernatejsf.service.MusicService;
 import com.home.hibernatejsf.service.UserService;
 import com.home.hibernatejsf.util.SessionAttributes;
 import com.home.hibernatejsf.util.Utils;
-import com.sun.istack.internal.logging.Logger;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -32,6 +32,7 @@ public class PrivateOfficeBean implements Serializable{
     // prev and next links
     private boolean disabledPrevLink;
     private boolean disabledNextLink;
+    private boolean disabledRemoveLink;
     // utils variable
     private static final String PLAY_LIST_EMPTY = "Playlist is empty!";
     private static final String UNEXPECTED_ERROR = "Unexpected error is happened!";
@@ -179,5 +180,22 @@ public class PrivateOfficeBean implements Serializable{
         }
         updateCurrentMusic();
         return true;
+    }
+
+    /**
+     * @return the disabledRemoveLink
+     */
+    public boolean isDisabledRemoveLink() {
+        if(musicList == null || musicList.isEmpty())
+            return true;
+        else 
+            return false;
+    }
+
+    /**
+     * @param disabledRemoveLink the disabledRemoveLink to set
+     */
+    public void setDisabledRemoveLink(boolean disabledRemoveLink) {
+        this.disabledRemoveLink = disabledRemoveLink;
     }
 }

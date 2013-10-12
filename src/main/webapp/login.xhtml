@@ -7,16 +7,26 @@
  
     <h:head>
         <title>Login</title>
+        <h:outputStylesheet library="dist" name="css/bootstrap.css" />
+        <h:outputStylesheet library="dist" name="css/bootstrap.min.css" />
+        <h:outputStylesheet library="dist" name="css/bootstrap-theme.css" />
+        <h:outputStylesheet library="dist" name="css/bootstrap-theme.min.css" />
     </h:head>
-    <h:body>
-    	<h:form>
-            <h:panelGrid columns="2">
+    <h:body class="body">
+        <h:form>
+            <!--h:panelGrid columns="2"-->
+            <div class="login-form">
+            <div class="form-group-login">
                 <h:outputLabel for="userName" value="Login:"/>
-                <h:inputText value="#{loginBean.userName}"/>
+                <h:inputText value="#{loginBean.userName}" styleClass="form-control" />
+            </div>
+            <div class="form-group-login">
                 <h:outputLabel for="userPassword" value="Password:"/>
-                <h:inputSecret value="#{loginBean.userPassword}"/>
-            </h:panelGrid>
-            <h:commandButton action="#{loginBean.login}" value="login"/>
+                <h:inputSecret value="#{loginBean.userPassword}" styleClass="form-control"/>
+            </div>
+            <!--/h:panelGrid-->
+            <h:commandButton action="#{loginBean.login}" value="login" styleClass="btn btn-sm btn-default"/>
+            </div>
         </h:form>
     </h:body>
 </html>

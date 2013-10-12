@@ -27,22 +27,32 @@ public class UserDaoImpl implements UserDao, Serializable {
     
     @Override
     public void saveUser(User user) {
+        LOG.trace("Into saveUser(" + user + ")");
         Session session = baseController.getSessionFactory().openSession();
-        session.beginTransaction();
-        session.save(user);
-        //session.flush();
-        session.getTransaction().commit();
-        session.close();
+        try{
+            session.beginTransaction();
+            session.save(user);
+            session.getTransaction().commit();
+        }catch(Exception e){
+            LOG.error(e);
+        }finally{
+            session.close();
+             LOG.trace("Exit saveUser(" + user + ")");
+        }
+        
+        
     }
 
     @Override
     public User getUserById(Long id) {
+        LOG.trace("Into getUserById(" + id + ")");
         Session session = baseController.getSessionFactory().openSession();
         return (User) session.get(User.class, id);
     }
 
     @Override
     public User getUserByName(String userName) {
+        LOG.trace("Into getUserByName(" + userName + ")");
         Session session = baseController.getSessionFactory().openSession();
         return (User) session.createQuery("from User where userName = :uName").setParameter("uName", userName).uniqueResult();
         
@@ -50,12 +60,19 @@ public class UserDaoImpl implements UserDao, Serializable {
 
     @Override
     public User updateUser(User newUser) {
+        LOG.trace("Into updateUser(" + newUser + ")");
         Session session = baseController.getSessionFactory().openSession();
-        session.getTransaction().begin();
-        session.merge(newUser);
-        //session.update(newUser);
-        session.getTransaction().commit();
-        session.close();
-        return newUser;
+        try{
+            session.getTransaction().begin();
+            session.merge(newUser);
+            session.getTransaction().commit();
+        }catch(Exception e){
+            LOG.error(e);
+        }finally{
+            session.close();
+            LOG.trace("Exit updateUser(" + newUser + ")");
+            return newUser;
+        }
+        
     }
 }

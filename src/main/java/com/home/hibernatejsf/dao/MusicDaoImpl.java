@@ -29,6 +29,7 @@ public class MusicDaoImpl implements MusicDao{
 
     @Override
     public List<Music> getMusicListByMusicType(MusicType mt) {
+        LOG.trace("Into getMusicListByMusicType(" + mt + ")");
         Session session = baseController.getSessionFactory().openSession();
         List<Music> result = new ArrayList<Music>();
         try{
@@ -37,12 +38,14 @@ public class MusicDaoImpl implements MusicDao{
             LOG.error(e);
         }finally{
             session.close();
+            LOG.trace("Exit getMusicListByMusicType(" + mt + ")");
             return result;
         }
     }
 
     @Override
     public Music getMusicById(Long id) {
+        LOG.trace("Into getMusicById(" + id + ")");
         Session session = baseController.getSessionFactory().openSession();
         return (Music) session.get(Music.class, id);
     }

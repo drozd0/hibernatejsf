@@ -6,8 +6,8 @@ package com.home.hibernatejsf.service;
 
 import com.home.hibernatejsf.dao.UserDao;
 import com.home.hibernatejsf.model.User;
-import com.sun.istack.internal.logging.Logger;
 import java.io.Serializable;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;

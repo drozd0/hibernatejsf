@@ -7,9 +7,9 @@ package com.home.hibernatejsf.web;
 import com.home.hibernatejsf.model.User;
 import com.home.hibernatejsf.service.UserService;
 import com.home.hibernatejsf.util.Utils;
-import com.sun.istack.internal.logging.Logger;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
+import org.apache.log4j.Logger;
 
 /**
  *
