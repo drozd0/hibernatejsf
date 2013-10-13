@@ -49,6 +49,10 @@
 		<managed-bean-name>helpBean</managed-bean-name>
 		<managed-bean-class>com.home.hibernatejsf.web.HelpBean</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
+                <managed-property>
+			<property-name>utilService</property-name>
+			<value>#{utilService}</value>
+		</managed-property>
 	</managed-bean>
         <managed-bean>
 		<managed-bean-name>privateOfficeBean</managed-bean-name>

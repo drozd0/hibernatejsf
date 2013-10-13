@@ -5,6 +5,7 @@
 package com.home.hibernatejsf.service;
 
 import com.home.hibernatejsf.dao.UtilDao;
+import com.home.hibernatejsf.model.Help;
 import com.home.hibernatejsf.model.MusicType;
 import com.home.hibernatejsf.web.HelpBean;
 import java.io.Serializable;
@@ -20,7 +21,6 @@ import org.springframework.stereotype.Service;
  */
 @Service("utilService")
 public class UtilServiceImpl implements UtilService{
-    private static final Logger LOG = Logger.getLogger(UtilServiceImpl.class);
     @Autowired
     @Qualifier("utilDao")
     private UtilDao utilDao;
@@ -33,6 +33,16 @@ public class UtilServiceImpl implements UtilService{
     @Override
     public MusicType getMusicTypeById(Integer id) {
         return utilDao.getMusicTypeById(id);
+    }
+
+    @Override
+    public List<Help> getAllHelp() {
+        return utilDao.getAllHelp();
+    }
+
+    @Override
+    public Help getHelpById(Long id) {
+        return utilDao.getHelpById(id);
     }
     
 }

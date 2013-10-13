@@ -4,6 +4,7 @@
  */
 package com.home.hibernatejsf.dao;
 
+import com.home.hibernatejsf.model.Help;
 import com.home.hibernatejsf.model.MusicType;
 import java.util.List;
 
@@ -14,4 +15,6 @@ import java.util.List;
 public interface UtilDao {
     List<MusicType> getAllMusicTypes();
     MusicType getMusicTypeById(Integer id);
+    List<Help> getAllHelp();
+    Help getHelpById(Long id);
 }

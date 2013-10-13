@@ -19,6 +19,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
             <value>com.home.hibernatejsf.model.User</value>
             <value>com.home.hibernatejsf.model.Music</value>
             <value>com.home.hibernatejsf.model.MusicType</value>
+            <value>com.home.hibernatejsf.model.Help</value>
          </list>
         </property>
     </bean>  

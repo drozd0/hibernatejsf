@@ -9,7 +9,4 @@
  
  <context:annotation-config/> 
  <context:component-scan base-package="com.home"/>
- <!--bean id="baseController" class="com.home.hibernatejsf.controller.BaseControllerImpl">
-     <property name="sessionFactory" ref="sessionFactory"/>
- </bean-->
 </beans>

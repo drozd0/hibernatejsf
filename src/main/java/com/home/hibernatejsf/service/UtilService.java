@@ -4,6 +4,7 @@
  */
 package com.home.hibernatejsf.service;
 
+import com.home.hibernatejsf.model.Help;
 import com.home.hibernatejsf.model.MusicType;
 import java.util.List;
 
@@ -14,5 +15,7 @@ import java.util.List;
 public interface UtilService {
     List<MusicType> getAllMusicTypes();
     MusicType getMusicTypeById(Integer id);
+    List<Help> getAllHelp();
+    Help getHelpById(Long id);
     
 }

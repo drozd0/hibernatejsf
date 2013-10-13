@@ -7,14 +7,18 @@
  
     <h:head>
         <title>Main menu</title>
+        <h:outputStylesheet library="dist" name="css/bootstrap.css" />
+        <h:outputStylesheet library="dist" name="css/bootstrap.min.css" />
+        <h:outputStylesheet library="dist" name="css/bootstrap-theme.css" />
+        <h:outputStylesheet library="dist" name="css/bootstrap-theme.min.css" />
     </h:head>
-    <h:body>
+    <h:body class="my-body">
         <h2>Welcome, #{successBean.userName}</h2>
-        <h:link value="Listening" outcome="listening"/>
-        <br/>
-        <h:link value="Private office" outcome="privateOffice"/>
-        <br/>
-        <h:link value="Help" outcome="help"/>
+        <ul class="list-unstyled" style="font-size: 20px">
+            <li><h:link value="Listening" outcome="listening"/></li>
+            <li><h:link value="Private office" outcome="privateOffice"/></li>
+            <li><h:link value="Help" outcome="help"/></li>
+        </ul>
     </h:body>
 </html>
 
