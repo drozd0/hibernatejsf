@@ -155,7 +155,6 @@ public class ListeningBean implements Serializable{
      * @return the disabledNextLink
      */
     public boolean isDisabledNextLink() {
-        //System.out.println( "isRendredNextLink"+ (currentMusicIndex  < (musicList.size()-1)));
         if(musicList != null && (currentMusicIndex  < (musicList.size()-1))){
             disabledNextLink = false;
         }
@@ -193,18 +192,18 @@ public class ListeningBean implements Serializable{
     }
     
     public void buyCurrentMusic(){
-        Long currentUserId = (Long) Utils.getAtributeFromSession(SessionAttributes.UserId.getAttributeName());
-        User currentUser = userService.getUserById(currentUserId);
-        if(currentUser != null){
-            List<Music> userMusicList = currentUser.getListMusic();
-            System.out.println("userMusicList - >" + userMusicList);
-            if(userMusicList == null)
-                userMusicList = new LinkedList<Music>();
-            // TODO: need to check tht music is already exist before saving
-            System.out.println("UserMusicList contains currentMusic: " + userMusicList.contains(musicList.get(currentMusicIndex)));
-            if(!userMusicList.contains(musicList.get(currentMusicIndex))){
-                userMusicList.add(musicList.get(currentMusicIndex));
-                userService.updateUser(currentUser);
+        if (musicList != null) {
+            Long currentUserId = (Long) Utils.getAtributeFromSession(SessionAttributes.UserId.getAttributeName());
+            User currentUser = userService.getUserById(currentUserId);
+            if (currentUser != null) {
+                List<Music> userMusicList = currentUser.getListMusic();
+                if (userMusicList == null) {
+                    userMusicList = new LinkedList<Music>();
+                }
+                if (!userMusicList.contains(musicList.get(currentMusicIndex))) {
+                    userMusicList.add(musicList.get(currentMusicIndex));
+                    userService.updateUser(currentUser);
+                }
             }
         }
     }

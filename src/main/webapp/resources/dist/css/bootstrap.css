@@ -2031,6 +2031,26 @@ textarea.input-lg {
           user-select: none;
 }
 
+.btn-without-left-padding{
+  display: inline-block;
+  padding-right: 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+}
+
 .btn:focus {
   outline: thin dotted #333;
   outline: 5px auto -webkit-focus-ring-color;
@@ -2351,6 +2371,14 @@ fieldset[disabled] .btn-link:focus {
   font-size: 18px;
   line-height: 1.33;
   border-radius: 6px;
+}
+
+.btn-lg-without-padding {
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .btn-sm,

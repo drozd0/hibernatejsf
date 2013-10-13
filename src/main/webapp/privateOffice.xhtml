@@ -25,7 +25,7 @@
                 <h:outputText id="musicContent" value="#{privateOfficeBean.currentMusic}"/>
             </h:panelGrid>
             <h:commandLink id="removeCurrentMusic" value="remove" disabled="#{privateOfficeBean.disabledRemoveLink}">
-                <f:ajax listener="#{privateOfficeBean.removeCurrentMusic}" render="musicContent previousMusic nextMusic"/>
+                <f:ajax listener="#{privateOfficeBean.removeCurrentMusic}" render="musicContent previousMusic nextMusic removeCurrentMusic"/>
             </h:commandLink>
         </h:form>
     </h:body>

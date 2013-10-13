@@ -7,32 +7,40 @@
  
     <h:head>
         <title>Listening</title>
+        <h:outputStylesheet library="dist" name="css/bootstrap.css" />
+        <h:outputStylesheet library="dist" name="css/bootstrap-theme.css" />
     </h:head>
-    <h:body>
+    <h:body class="my-body">
         <h1>Listening</h1>
-        <div id="header">
-            <h:link id="back" value="back" outcome="back"/>
+        <div id="header" class="form-inline">
+            <h:link id="back" value="back" outcome="back" class="btn-without-left-padding btn-lg-without-padding"/>
         </div>
         <h:form>
-            <h:selectOneMenu id="musicTypeSelect" value="#{listeningBean.typeOfRecords}">
-                <f:selectItems value="#{listeningBean.list}"/>
-            </h:selectOneMenu>
-            <h:commandButton id="selectButton" value="Select">
-                <f:ajax listener="#{listeningBean.updateCurrentMusic}" execute="musicTypeSelect" render="previousMusic nextMusic musicContent"/>
-            </h:commandButton>
-            <br/>
-            <h:panelGrid columns="2">
-            <h:commandLink id="previousMusic" value="prev" disabled="#{listeningBean.disabledPrevLink}">
-                <f:ajax listener="#{listeningBean.decrementCurrentMusicIndex}" render="previousMusic nextMusic musicContent"/>
-            </h:commandLink>
-            <h:commandLink id="nextMusic" value="next" disabled="#{listeningBean.disabledNextLink}">
-                <f:ajax listener="#{listeningBean.incrementCurrentMusicIndex}" render="nextMusic previousMusic musicContent"/>
-            </h:commandLink>
-                <h:outputText id="musicContent" value="#{listeningBean.currentMusic}"/>
-            </h:panelGrid>
-            <h:commandLink id="buyCurrentMusic" value="buy">
-                <f:ajax listener="#{listeningBean.buyCurrentMusic}"/>
-            </h:commandLink>
+            <div id="firstComp" class="form-inline">
+                <h:selectOneMenu id="musicTypeSelect" value="#{listeningBean.typeOfRecords}" class="form-control" style="width: 10%; margin-right: 5px;">
+                    <f:selectItems value="#{listeningBean.list}"/>
+                </h:selectOneMenu>
+                <h:commandButton id="selectButton" value="Select" class="btn btn-success btn-default">
+                    <f:ajax listener="#{listeningBean.updateCurrentMusic}" execute="musicTypeSelect" render="previousMusic nextMusic musicContent"/>
+                </h:commandButton>
+            </div>
+            <div id="SecondComp" class="form-inline">
+                <h:commandLink id="previousMusic" value="prev" disabled="#{listeningBean.disabledPrevLink}" class="btn-without-left-padding btn-lg-without-padding">
+                    <f:ajax listener="#{listeningBean.decrementCurrentMusicIndex}" render="previousMusic nextMusic musicContent"/>
+                </h:commandLink>
+                <h:commandLink id="nextMusic" value="next" disabled="#{listeningBean.disabledNextLink}" class="btn-without-left-padding btn-lg-without-padding" >
+                    <f:ajax listener="#{listeningBean.incrementCurrentMusicIndex}" render="nextMusic previousMusic musicContent"/>
+                </h:commandLink>
+            </div>
+            <div id="ContentDiv" class="form">
+                <h:outputLabel for="musicContent" value="Music:"/>
+                <h:outputText id="musicContent" value="#{listeningBean.currentMusic}" class="form-control" style="width: 15%"/>
+            </div>
+            <div id="BuyLink" class="form-inline">
+                <h:commandLink id="buyCurrentMusic" value="buy track" class="btn-without-left-padding btn-lg-without-padding">
+                    <f:ajax listener="#{listeningBean.buyCurrentMusic}"/>
+                </h:commandLink>
+            </div>
         </h:form>
 
     </h:body>

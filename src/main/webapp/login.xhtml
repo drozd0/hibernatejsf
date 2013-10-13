@@ -14,7 +14,6 @@
     </h:head>
     <h:body class="body">
         <h:form>
-            <!--h:panelGrid columns="2"-->
             <div class="login-form">
             <div class="form-group-login">
                 <h:outputLabel for="userName" value="Login:"/>
@@ -24,7 +23,6 @@
                 <h:outputLabel for="userPassword" value="Password:"/>
                 <h:inputSecret value="#{loginBean.userPassword}" styleClass="form-control input-lg"/>
             </div>
-            <!--/h:panelGrid-->
             <h:commandButton action="#{loginBean.login}" value="Sign in" styleClass="btn btn-lg btn-success"/>
             </div>
         </h:form>
