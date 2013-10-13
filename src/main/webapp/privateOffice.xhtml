@@ -7,26 +7,32 @@
  
     <h:head>
         <title>Private Office</title>
+        <h:outputStylesheet library="dist" name="css/bootstrap.css" />
+        <h:outputStylesheet library="dist" name="css/bootstrap-theme.css" />
     </h:head>
-    <h:body>
+    <h:body class="my-body">
         <h3>Private office</h3>
-        <div id="header">
-            <h:link id="back" value="back" outcome="back"/>
+        <div id="headerM">
+            <h:link id="back" value="back" outcome="back" class="btn-without-left-padding btn-lg-without-padding"/>
         </div>
         <h:form>
             <h:inputHidden id="hiddenEl" value="#{privateOfficeBean.updateMusicList}"/>
-            <h:panelGrid columns="2">
-            <h:commandLink id="previousMusic" value="prev" disabled="#{privateOfficeBean.disabledPrevLink}">
-                <f:ajax listener="#{privateOfficeBean.decrementCurrentMusicIndex}" render="previousMusic nextMusic musicContent"/>
-            </h:commandLink>
-            <h:commandLink id="nextMusic" value="next" disabled="#{privateOfficeBean.disabledNextLink}">
-                <f:ajax listener="#{privateOfficeBean.incrementCurrentMusicIndex}" render="nextMusic previousMusic musicContent"/>
-            </h:commandLink>
-                <h:outputText id="musicContent" value="#{privateOfficeBean.currentMusic}"/>
-            </h:panelGrid>
-            <h:commandLink id="removeCurrentMusic" value="remove" disabled="#{privateOfficeBean.disabledRemoveLink}">
-                <f:ajax listener="#{privateOfficeBean.removeCurrentMusic}" render="musicContent previousMusic nextMusic removeCurrentMusic"/>
-            </h:commandLink>
+            <div id="firstComp" class="form-inline">
+                <h:commandLink id="previousMusic" value="prev" disabled="#{privateOfficeBean.disabledPrevLink}" class="btn-without-left-padding btn-lg-without-padding">
+                    <f:ajax listener="#{privateOfficeBean.decrementCurrentMusicIndex}" render="previousMusic nextMusic musicContent"/>
+                </h:commandLink>
+                <h:commandLink id="nextMusic" value="next" disabled="#{privateOfficeBean.disabledNextLink}" class="btn-without-left-padding btn-lg-without-padding">
+                    <f:ajax listener="#{privateOfficeBean.incrementCurrentMusicIndex}" render="nextMusic previousMusic musicContent"/>
+                </h:commandLink>
+            </div>
+            <div id="musicComponent">
+                <h:outputText id="musicContent" value="#{privateOfficeBean.currentMusic}" class="form-control" style="width: 15%"/> 
+            </div>
+            <div id="removeMusic" class="form-inline">
+                <h:commandLink id="removeCurrentMusic" value="remove" disabled="#{privateOfficeBean.disabledRemoveLink}" class="btn-without-left-padding btn-lg-without-padding">
+                    <f:ajax listener="#{privateOfficeBean.removeCurrentMusic}" render="musicContent previousMusic nextMusic removeCurrentMusic"/>
+                </h:commandLink>
+            </div>
         </h:form>
     </h:body>
 </html>

@@ -21,7 +21,7 @@
                     <f:selectItems value="#{listeningBean.list}"/>
                 </h:selectOneMenu>
                 <h:commandButton id="selectButton" value="Select" class="btn btn-success btn-default">
-                    <f:ajax listener="#{listeningBean.updateCurrentMusic}" execute="musicTypeSelect" render="previousMusic nextMusic musicContent"/>
+                    <f:ajax listener="#{listeningBean.updateCurrentMusic}" execute="musicTypeSelect" render="previousMusic nextMusic musicContent buyCurrentMusic"/>
                 </h:commandButton>
             </div>
             <div id="SecondComp" class="form-inline">
@@ -37,7 +37,7 @@
                 <h:outputText id="musicContent" value="#{listeningBean.currentMusic}" class="form-control" style="width: 15%"/>
             </div>
             <div id="BuyLink" class="form-inline">
-                <h:commandLink id="buyCurrentMusic" value="buy track" class="btn-without-left-padding btn-lg-without-padding">
+                <h:commandLink id="buyCurrentMusic" value="buy track" disabled="#{listeningBean.disabledBuyLink}" class="btn-without-left-padding btn-lg-without-padding">
                     <f:ajax listener="#{listeningBean.buyCurrentMusic}"/>
                 </h:commandLink>
             </div>

@@ -7,21 +7,26 @@
  
     <h:head>
         <title>Help</title>
+        <h:outputStylesheet library="dist" name="css/bootstrap.css" />
+        <h:outputStylesheet library="dist" name="css/bootstrap-theme.css" />
     </h:head>
-    <h:body>
+    <h:body class="my-body">
             <h2>Help</h2>
         <h:form>
-            <h:selectOneMenu id="helpValueMenu" value="#{helpBean.helpValue}">
-            <f:selectItems id="helpValueItems" value="#{helpBean.helpValueMap}"/>
-        </h:selectOneMenu>
-        <h:commandButton id="selectionButton" value="Submit">
-            <f:ajax execute="helpValueMenu" render="content"/>
-        </h:commandButton>
-        <div id="ContentInfo">
-            <h3>Information: <h:outputText id="content" value="#{helpBean.helpInformation}"/></h3>
+        <div id="backToEarth">
+             <h:link id="backLink" value="back" outcome="back" class="btn-without-left-padding btn-lg-without-padding"/>
         </div>
-         <div id="footer">
-            <h:link id="backLink" value="back" outcome="back"/>
+            <div id="firstComp" class="form-inline">
+                <h:selectOneMenu id="helpValueMenu" value="#{helpBean.helpValue}" class="form-control" style="width: 10%; margin-right: 5px;">
+                    <f:selectItems id="helpValueItems" value="#{helpBean.helpValueMap}"/>
+                </h:selectOneMenu>
+                <h:commandButton id="selectionButton" value="Submit" class="btn btn-success">
+                    <f:ajax execute="helpValueMenu" render="content"/>
+                </h:commandButton>
+            </div>
+            <div id="ContentInfo" class="form-inline" style="margin-top: 10px;">
+                <h:outputLabel for="content" value="Help info:" class="text-warning"/>
+                <h:outputText id="content" value="#{helpBean.helpInformation}" class="text-warning" style="width: 15%"/>
         </div>
         </h:form>
     </h:body>

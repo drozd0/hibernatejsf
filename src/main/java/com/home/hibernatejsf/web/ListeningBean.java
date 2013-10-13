@@ -39,6 +39,7 @@ public class ListeningBean implements Serializable{
     // prev and next links
     private boolean disabledPrevLink;
     private boolean disabledNextLink;
+    private boolean disabledBuyLink;
     // utils variable
     private static final String PLAY_LIST_EMPTY = "Playlist is empty!";
     
@@ -206,5 +207,22 @@ public class ListeningBean implements Serializable{
                 }
             }
         }
+    }
+
+    /**
+     * @return the disabledBuyLink
+     */
+    public boolean isDisabledBuyLink() {
+        if(musicList == null || musicList.isEmpty())
+            return true;
+        else
+            return false;
+    }
+
+    /**
+     * @param disabledBuyLink the disabledBuyLink to set
+     */
+    public void setDisabledBuyLink(boolean disabledBuyLink) {
+        this.disabledBuyLink = disabledBuyLink;
     }
 }
