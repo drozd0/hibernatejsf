@@ -105,7 +105,7 @@ WITH (
 ALTER TABLE schema1.help_info
   OWNER TO postgres;
 
-INSERT INTO schema1.help_info (help_info_id, help_info_content, help_info_title) VALUES (2, 'Each content costs 100$', 'Cost');
+INSERT INTO schema1.help_info (help_info_id, help_info_content, help_info_title) VALUES (2, 'Each track costs 100$', 'Cost');
 INSERT INTO schema1.help_info (help_info_id, help_info_content, help_info_title) VALUES (1, 'Service allows to listen and buy a content!', 'Possibilities');
 
 
