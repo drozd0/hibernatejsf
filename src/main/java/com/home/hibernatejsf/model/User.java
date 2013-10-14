@@ -24,7 +24,7 @@ import org.hibernate.annotations.CascadeType;
  * @author Mike
  */
 @Entity
-@Table(name = "localusers")
+@Table(schema = "schema1", name = "localusers")
 public class User implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,7 +39,7 @@ public class User implements Serializable{
     
     @ManyToMany(fetch = FetchType.LAZY)
     @Cascade({CascadeType.ALL})
-    @JoinTable(name = "user_music", joinColumns = {@JoinColumn (name = "user_m_id", nullable = false)}, inverseJoinColumns = {@JoinColumn(name = "music_u_id", 
+    @JoinTable(schema = "schema1", name = "user_music", joinColumns = {@JoinColumn (name = "user_m_id", nullable = false)}, inverseJoinColumns = {@JoinColumn(name = "music_u_id", 
 	nullable = false)})
     private List<Music> listMusic;
 

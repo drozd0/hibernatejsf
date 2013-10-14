@@ -20,7 +20,7 @@ import javax.persistence.Table;
  * @author Mike
  */
 @Entity
-@Table(name = "music_type")
+@Table(schema = "schema1", name = "music_type")
 public class MusicType implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

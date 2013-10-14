@@ -24,7 +24,7 @@ import org.hibernate.annotations.CascadeType;
  * @author Mike
  */
 @Entity
-@Table(name = "music")
+@Table(schema = "schema1", name = "music")
 public class Music implements Serializable{
 
     @Id

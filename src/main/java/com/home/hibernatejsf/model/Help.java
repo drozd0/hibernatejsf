@@ -17,7 +17,7 @@ import javax.persistence.Table;
  * @author Mike
  */
 @Entity
-@Table(name = "help_info")
+@Table( schema = "schema1", name = "help_info")
 public class Help implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
