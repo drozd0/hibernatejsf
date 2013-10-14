@@ -198,4 +198,10 @@ public class PrivateOfficeBean implements Serializable{
     public void setDisabledRemoveLink(boolean disabledRemoveLink) {
         this.disabledRemoveLink = disabledRemoveLink;
     }
+    
+    public String signOut(){
+       LOG.info("SignOut...");
+       Utils.removeAtributeFromSession(SessionAttributes.UserId.getAttributeName());
+       return "signOut";
+    }
 }

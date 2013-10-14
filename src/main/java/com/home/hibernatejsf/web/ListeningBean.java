@@ -225,4 +225,10 @@ public class ListeningBean implements Serializable{
     public void setDisabledBuyLink(boolean disabledBuyLink) {
         this.disabledBuyLink = disabledBuyLink;
     }
+    
+        public String signOut(){
+        LOG.info("SignOut...");
+        Utils.removeAtributeFromSession(SessionAttributes.UserId.getAttributeName());
+        return "signOut";
+    }
 }

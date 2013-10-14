@@ -6,6 +6,7 @@ package com.home.hibernatejsf.web;
 
 import com.home.hibernatejsf.model.User;
 import com.home.hibernatejsf.service.UserService;
+import com.home.hibernatejsf.util.SessionAttributes;
 import com.home.hibernatejsf.util.Utils;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
@@ -32,6 +33,12 @@ public class SuccessBean implements Serializable{
             result = currentUser.getUserName() + "!";
         }
         return result;
+    }
+    
+    public String signOut(){
+        LOG.info("SignOut...");
+        Utils.removeAtributeFromSession(SessionAttributes.UserId.getAttributeName());
+        return "signOut";
     }
     
 }

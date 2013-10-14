@@ -11,7 +11,10 @@
         <h:outputStylesheet library="dist" name="css/bootstrap-theme.css" />
     </h:head>
     <h:body class="my-body">
-        <h1>Listening</h1>
+        <h:form>
+            <h:commandButton id="signOut" value="Sign out" type="submit"  action="#{helpBean.signOut}" class="btn btn-success pull-right"/>
+        </h:form>
+        <h2>Listening</h2>
         <div id="header" class="form-inline">
             <h:link id="back" value="back" outcome="back" class="btn-without-left-padding btn-lg-without-padding"/>
         </div>

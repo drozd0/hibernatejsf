@@ -11,6 +11,9 @@
         <h:outputStylesheet library="dist" name="css/bootstrap-theme.css" />
     </h:head>
     <h:body class="my-body">
+        <h:form>
+            <h:commandButton id="signOut" value="Sign out" type="submit"  action="#{helpBean.signOut}" class="btn btn-success pull-right"/>
+        </h:form>
             <h2>Help</h2>
         <h:form>
         <div id="backToEarth">

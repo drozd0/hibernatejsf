@@ -27,4 +27,11 @@ public class Utils {
         httpSession.setAttribute(attributeName, attributeValue);
     }
     
+    public static void removeAtributeFromSession(final String attributeName){
+        FacesContext context = FacesContext.getCurrentInstance();
+        HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+        HttpSession httpSession = request.getSession(false);
+        httpSession.removeAttribute(attributeName);
+    } 
+    
 }

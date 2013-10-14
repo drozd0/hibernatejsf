@@ -99,6 +99,11 @@
                 <to-view-id>/listening.xtml</to-view-id>
                 <redirect />
             </navigation-case>
+            <navigation-case>
+                <from-outcome>signOut</from-outcome>
+                <to-view-id>/login.xhtml</to-view-id>
+                <redirect />
+            </navigation-case>
         </navigation-rule>
         
         <navigation-rule>
@@ -106,6 +111,11 @@
             <navigation-case>
                 <from-outcome>back</from-outcome>
                 <to-view-id>/mainMenu.xhtml</to-view-id>
+                <redirect />
+            </navigation-case>
+            <navigation-case>
+                <from-outcome>signOut</from-outcome>
+                <to-view-id>/login.xhtml</to-view-id>
                 <redirect />
             </navigation-case>
         </navigation-rule>
@@ -117,6 +127,11 @@
                 <to-view-id>/mainMenu.xhtml</to-view-id>
                 <redirect />
             </navigation-case>
+            <navigation-case>
+                <from-outcome>signOut</from-outcome>
+                <to-view-id>/login.xhtml</to-view-id>
+                <redirect />
+            </navigation-case>
         </navigation-rule>
         
         <navigation-rule>
@@ -124,6 +139,11 @@
             <navigation-case>
                 <from-outcome>back</from-outcome>
                 <to-view-id>/mainMenu.xhtml</to-view-id>
+                <redirect />
+            </navigation-case>
+            <navigation-case>
+                <from-outcome>signOut</from-outcome>
+                <to-view-id>/login.xhtml</to-view-id>
                 <redirect />
             </navigation-case>
         </navigation-rule>

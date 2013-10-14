@@ -7,6 +7,8 @@ package com.home.hibernatejsf.web;
 import com.home.hibernatejsf.dao.UtilDao;
 import com.home.hibernatejsf.model.Help;
 import com.home.hibernatejsf.service.UtilService;
+import com.home.hibernatejsf.util.SessionAttributes;
+import com.home.hibernatejsf.util.Utils;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -64,4 +66,9 @@ public class HelpBean implements Serializable{
         return result;
     }
     
+        public String signOut(){
+        LOG.info("SignOut...");
+        Utils.removeAtributeFromSession(SessionAttributes.UserId.getAttributeName());
+        return "signOut";
+    }
 }
